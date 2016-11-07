@@ -1,3 +1,29 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+  <md-toolbar color="primary">
+    <span>
+      NgEurope 2016
+    </span>
+  </md-toolbar>
+  <div class="padding-top padding-right padding-left">
+    <md-input class="search" placeholder="Search" floatingPlaceholder="false" [(ngModel)]="q"></md-input>
+  </div>
+  <md-card class="all-margin" *ngFor="let presentation of presentations | search:q">
+    <md-card-title>{{presentation.title}}</md-card-title>
+    <md-card-subtitle>{{presentation.presenter}} <i>({{presentation.category}})</i></md-card-subtitle>
+    <md-card-content>
+        <h4 *ngIf="presentation.shortDesc" class="text-justify">{{presentation.shortDesc}}</h4>
+        <div *ngIf="presentation.longDesc" class="text-justify">"{{presentation.longDesc}}"</div>
+        <div class="play-yt margin-top" *ngIf="presentation.video && currentVideo !== presentation.video">
+          <button md-raised-button color="primary" class="mr-5" (click)="setCurrentVideo(presentation.video)">Play video</button> or <a href="getLink('https://www.youtube.com/watch?v=' + presentation.video)" target="_blank" class="link">Open in YouTube</a>
+        </div>
+        <iframe class="margin-top" *ngIf="presentation.video && currentVideo === presentation.video" width="560" height="315" [src]="currentVideoLink" frameborder="0" allowfullscreen></iframe>
+        <h3 *ngIf="presentation.presentation"><a [href]="getLink(presentation.presentation)" target="_blank" class="link">Open Slides / Presentation</a></h3>
+        <h4 *ngIf="presentation.links && presentation.links.length > 0">
+          Useful links:
+          <span *ngFor="let link of presentation.links">
+            <a [href]="getLink(link)" [innerHTML]="getText(link)" target="_blank" class="link"></a>
+          </span>
+        </h4>
+    </md-card-content>
+  </md-card>
+</div>

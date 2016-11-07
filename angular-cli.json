@@ -18,9 +18,13 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "app/common/common.scss",
+        "app/common/paddings.scss",
+        "app/common/theme.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/lodash/lodash.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
