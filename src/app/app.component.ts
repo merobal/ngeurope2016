@@ -18,7 +18,7 @@ export class NgPresentation {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private _sanitizer: DomSanitizer) {
     //
   }
 
@@ -28,21 +28,21 @@ export class AppComponent {
   }
 
   getEmbedLink(string: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(string);
+    return this._sanitizer.bypassSecurityTrustResourceUrl(string);
   }
 
   getLink(string: string): SafeUrl {
-    return this.sanitizer.bypassSecurityTrustUrl(string);
+    return this._sanitizer.bypassSecurityTrustUrl(string);
   }
 
   getText(string: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(string);
+    return this._sanitizer.bypassSecurityTrustHtml(string);
   }
 
-  private q: string;
-  private currentVideo: string;
-  private currentVideoLink: SafeResourceUrl;
-  private presentations: NgPresentation[] = [{
+  public q: string;
+  public currentVideo: string;
+  public currentVideoLink: SafeResourceUrl;
+  public presentations: NgPresentation[] = [{
     category: "Keynote",
     title: "Keynote",
     presenter: "Miško Hevery",
