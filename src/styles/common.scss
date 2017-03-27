@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import './theme';
 
 body {
@@ -22,7 +21,7 @@ a {
 }
 
 .link {
-  color: md-color($primary);
+  color: mat-color($primary);
   text-decoration: none;
 
   &:hover {

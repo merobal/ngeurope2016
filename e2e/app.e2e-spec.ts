@@ -1,10 +1,10 @@
-import { NgeuropePage } from './app.po';
+import { Ngeurope2016Page } from './app.po';
 
-describe('ngeurope App', function() {
-  let page: NgeuropePage;
+describe('ngeurope2016 App', () => {
+  let page: Ngeurope2016Page;
 
   beforeEach(() => {
-    page = new NgeuropePage();
+    page = new Ngeurope2016Page();
   });
 
   it('should display message saying app works', () => {

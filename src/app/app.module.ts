@@ -16,7 +16,7 @@ import { SearchPipe } from './app-search.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
